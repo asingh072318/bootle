@@ -27,11 +27,11 @@ class UsbService:
     #                 device_size = {'total': self.get_human_readable_size(total), 'used': self.get_human_readable_size(used), 'available': self.get_human_readable_size(available)}
     #                 devices.append(Device(device_path, device_size, device))
     #     return devices
-    
+
     def get_devices(self):
         devices = []
         for partition in psutil.disk_partitions():
-            if 'removable' in partition.opts:
+            if 'sd' in partition.device:
                 device_path = partition.mountpoint
                 total, used, available = self.get_device_space(device_path)
                 device_size = {
