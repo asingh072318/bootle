@@ -10,7 +10,7 @@ class BootleSetup:
         self.version = '0.1'
         self.packages = find_packages(include=['bootle', 'bootle.*'])
         self.include_package_data = True
-        self.install_requires = ['click','termcolor']
+        self.install_requires = ['click','termcolor','psutil']
         self.entry_points = {
             'console_scripts': [
                 'bootle = bootle.bootle:main',
