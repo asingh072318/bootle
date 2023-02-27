@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 class UsbService:
     def get_devices(self):
         devices = []
-        for partition in psutil.disk_partitions():
+        for partition in psutil.disk_partitions(True):
             if 'sd' in partition.device and "boot" not in partition.mountpoint:
                 device_path = partition.mountpoint
                 total, used, available = self.get_device_space(device_path)
