@@ -1,5 +1,6 @@
 from setuptools import setup, find_packages
 from setuputils.clean_command import CleanCommand
+from setuputils.upgrade_command import UpgradeCommand
 from setuputils.logging_config import LOGGING_CONFIG
 import logging.config
 
@@ -10,7 +11,7 @@ class BootleSetup:
         self.version = '0.1'
         self.packages = find_packages(include=['bootle', 'bootle.*'])
         self.include_package_data = True
-        self.install_requires = ['click','termcolor','psutil']
+        self.install_requires = ['click','termcolor','psutil','urllib']
         self.entry_points = {
             'console_scripts': [
                 'bootle = bootle.bootle:main',
@@ -18,6 +19,7 @@ class BootleSetup:
         }
         self.cmdclass = {
             'clean': CleanCommand,
+            'upgrade': UpgradeCommand
         }
 
     def setup(self):
