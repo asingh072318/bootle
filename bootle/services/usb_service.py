@@ -13,7 +13,7 @@ class UsbService:
         devices = []
         for partition in psutil.disk_partitions(True):
             if 'sd' in partition.device and "boot" not in partition.mountpoint:
-                device_path = partition.mountpoint
+                device_path = partition.device
                 total, used, available = self.get_device_space(device_path)
                 device_size = {
                     'total': self.get_human_readable_size(total),
