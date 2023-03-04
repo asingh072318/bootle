@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 from setuputils.clean_command import CleanCommand
-from setuputils.upgrade_command import UpgradeCommand
 from setuputils.logging_config import LOGGING_CONFIG
 import logging.config
 
@@ -18,8 +17,7 @@ class BootleSetup:
             ],
         }
         self.cmdclass = {
-            'clean': CleanCommand,
-            'upgrade': UpgradeCommand
+            'clean': CleanCommand
         }
 
     def setup(self):

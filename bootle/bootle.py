@@ -1,6 +1,7 @@
 import logging
 from bootle.models.device import Device
 from bootle.services.usb_service import UsbService
+from bootle.services.formatter_service import USBFormatterService
 from termcolor import colored
 
 
@@ -24,6 +25,9 @@ def main():
             try:
                 selected_device = devices[int(choice) - 1]
                 logger.info(f"\nSelected device:\n{selected_device}")
+                formatter_service = USBFormatterService()
+                formatter_service.format_drive(selected_device)
+                logger.info(f"\nDrive {selected_device} has been formatted and named as 'bootle'.")
                 break
             except (IndexError, ValueError):
                 logger.warning("Invalid input, please try again.")
