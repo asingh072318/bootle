@@ -16,7 +16,7 @@ class USBFormatterService:
             subprocess.check_call(cmd)
             logger.info(f"Drive {device_path} formatted as GPT partition.")
             # Name the formatted drive "bootle" on Linux
-            cmd = ['sudo', 'mkfs.fat', '-F', '32', '-n', 'bootle', f"{device_path}1"]
+            cmd = ['sudo', 'mkfs.fat', '-F', '32', '-n', 'bootle', f"{device_path}"]
             subprocess.check_call(cmd)
             logger.info(f"Drive {device_path} named as 'bootle'.")
         elif self.os_name == 'Darwin':
