@@ -8,7 +8,8 @@ class USBFormatterService:
     def __init__(self):
         self.os_name = platform.system()
     
-    def format_drive(self, device_path):
+    def format_drive(self, device):
+        device_path = device.path
         if self.os_name == 'Linux':
             # Format drive as GPT partition on Linux
             cmd = ['sudo', 'sgdisk', '-Z', device_path]
