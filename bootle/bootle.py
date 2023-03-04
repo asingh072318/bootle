@@ -26,7 +26,7 @@ def main():
                 selected_device = devices[int(choice) - 1]
                 logger.info(f"\nSelected device:\n{selected_device}")
                 formatter_service = USBFormatterService()
-                formatter_service.format_drive(selected_device)
+                formatter_service.format_drive(selected_device.device_path)
                 logger.info(f"\nDrive {selected_device} has been formatted and named as 'bootle'.")
                 break
             except (IndexError, ValueError):
